@@ -1,0 +1,4 @@
+cmake
+dlib
+face-recognition
+opencv-python

@@ -12,17 +12,17 @@ encodeHermione = fr.face_encodings(imgHermione)[0]
 imgHarry = fr.load_image_file('ImagensFR/Harry.jpg')
 encodeHarry = fr.face_encodings(imgHarry)[0]
 
-# Ron
-imgRon = fr.load_image_file('ImagensFR/Ron.jpg')
-encodeRon = fr.face_encodings(imgRon)[0]
+# Rony
+imgRony = fr.load_image_file('ImagensFR/Rony.jpg')
+encodeRony = fr.face_encodings(imgRony)[0]
 
-known_encodings = [encodeHermione, encodeHarry, encodeRon]
-known_names = ["Hermione", "Harry", "Ron"]
+known_encodings = [encodeHermione, encodeHarry, encodeRony]
+known_names = ["Hermione", "Harry", "Rony"]
 
 print("Encodings carregados!\n")
 
 # ======== ABRIR O VÍDEO ========
-video = cv2.VideoCapture('Video.mp4')
+video = cv2.VideoCapture('Video2.mp4')
 
 if not video.isOpened():
     print("Erro ao abrir o vídeo!")
@@ -34,8 +34,8 @@ while True:
         break
 
     # Reduz processamento (opcional)
-    #small_frame = cv2.resize(frame, (0, 0), fx=0.5, fy=0.5)
-    #rgb_frame = cv2.cvtColor(small_frame, cv2.COLOR_BGR2RGB)
+    small_frame = cv2.resize(frame, (0, 0), fx=0.5, fy=0.5)
+    rgb_frame = cv2.cvtColor(small_frame, cv2.COLOR_BGR2RGB)
 
     rgb_frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
 

@@ -212,3 +212,7 @@ __marimo__/
 *.user
 *.userosscache
 *.sln.docstates
+
+# Personalizado
+Video_Processado.mp4
+*.whl

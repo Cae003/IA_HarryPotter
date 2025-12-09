@@ -7,19 +7,21 @@ print("Carregando imagens de referência...")
 imgHermione = fr.load_image_file('ImagensFR/Hermione.jpg')
 encodeHermione = fr.face_encodings(imgHermione)[0]
 
+imgHarryOculos = fr.load_image_file('ImagensFR/Harry_O.jpg')
+encodeHarryOculos = fr.face_encodings(imgHarryOculos)[0]
 imgHarry = fr.load_image_file('ImagensFR/Harry.jpg')
 encodeHarry = fr.face_encodings(imgHarry)[0]
 
 imgRony = fr.load_image_file('ImagensFR/Rony.jpg')
 encodeRony = fr.face_encodings(imgRony)[0]
 
-known_encodings = [encodeHermione, encodeHarry, encodeRony]
-known_names = ["Hermione", "Harry", "Rony"]
+known_encodings = [encodeHermione, encodeHarryOculos, encodeHarry, encodeRony]
+known_names = ["Hermione", "Harry", "Harry", "Rony"]
 
 print("Encodings carregados!\n")
 
 # ======== ABRIR VÍDEO ORIGINAL ========
-video = cv2.VideoCapture('Video.mp4')
+video = cv2.VideoCapture('Video2.mp4')
 
 if not video.isOpened():
     print("Erro ao abrir o vídeo!")
@@ -51,9 +53,12 @@ while True:
     for (top, right, bottom, left), face_encoding in zip(face_locations, face_encodings):
 
         matches = fr.compare_faces(known_encodings, face_encoding)
+        print(matches)
         distances = fr.face_distance(known_encodings, face_encoding)
+        print(distances)
 
         best_match = distances.argmin()
+        print(best_match)
         name = "Desconhecido"
 
         if matches[best_match]:
@@ -71,6 +76,12 @@ while True:
             (0, 0, 0),
             2
         )
+
+    # Mostrar vídeo
+    cv2.imshow("Reconhecimento - Harry Potter", frame)
+
+    if cv2.waitKey(1) & 0xFF == ord('q'):
+        break
 
     # Escrever o frame no vídeo de saída
     output.write(frame)

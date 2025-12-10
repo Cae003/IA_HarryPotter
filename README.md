@@ -20,6 +20,6 @@ E pronto! Já pode rodar o código normalmente!
 
 ### Atenção! Tratamento de Possível Erro!
 Ao rodar o código, existe a possibilidade de gerar um erro que diz que é necessário instalar a biblioteca “face_recognition_models”, como demonstra a imagem abaixo:
-![Guia para Erro](./assets/Guia.png)
+![Guia para Erro](./assets/Erro.png)
 
 Se ele ocorrer, tente instalar a biblioteca. Se não funcionar, será necessário baixar outra versão do python diferente da que você está usando e pegar a “dlib” correspondente conforme mostrado acima. Se estiver usando ambientes virtuais, tente simplesmente criar um ambiente com uma versão diferente do python.

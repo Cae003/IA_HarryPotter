@@ -25,4 +25,5 @@ print(distancia) #printa a distância entre os rostos (quanto menor a distância
 
 cv2.imshow('Imagem Original', imgBase)
 cv2.imshow('Imagem Teste', imgTeste)
-cv2.waitKey(0)
+if cv2.waitKey(0) & 0xFF == ord('q'):
+    cv2.destroyAllWindows()
